@@ -8,14 +8,12 @@ var longestCommonPrefix = function (strs) {
   let commonStr = strs.sort()[0];
 
   for (let i = 1; i < strs.length; i++) {
-    splitItem = strs[i].split("");
-    splitCommon = commonStr.split("");
     let j = 0;
-    while (j < splitCommon.length && j < splitItem.length) {
-      if (splitCommon[j] === splitItem[j]) {
+    while (j < commonStr.length && j < strs[i].length) {
+      if (commonStr[j] === strs[i][j]) {
         j++;
       } else {
-        commonStr = splitItem.slice(0, j).join("");
+        commonStr = strs[i].slice(0, j);
         break;
       }
     }
