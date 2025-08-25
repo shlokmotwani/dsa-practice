@@ -32,4 +32,4 @@ var removeElement = function (nums, val) {
 };
 
 console.log(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)); // 5, [ 0, 0, 1, 3, 4 ]
-console.log(removeElement([3, 2, 2, 3], 3)); // 5, [2, 2]
+console.log(removeElement([3, 2, 2, 3], 3)); // 3, [2, 2]
