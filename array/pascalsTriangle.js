@@ -2,8 +2,6 @@ var generate = function (numRows) {
   let i = 0;
   let pascal = [];
   while (i < numRows) {
-    console.log(`i = ${i}`);
-
     if (i == 0) {
       pascal.push([1]);
     } else if (i == 1) {
