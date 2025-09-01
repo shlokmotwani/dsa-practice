@@ -1,23 +1,18 @@
 var intersect = function (nums1, nums2) {
-    let smaller;
-    let larger;
     const common = [];
-    if (nums1.length < nums2.length) {
-        smaller = nums1;
-        larger = nums2;
+    let nums1Map = new Map();
+    for (let num of nums1) {
+        if (nums1Map[num]) {
+            nums1Map[num]++;
+        }
+        else {
+            nums1Map[num] = 1;
+        }
     }
-    else {
-        smaller = nums2;
-        larger = nums1;
-    }
-    let reachedIdx = new Set();
-    for(let i=0; i<smaller.length; i++){
-        for(let j=0; j<larger.length; j++){
-            if(smaller[i] === larger[j] && !reachedIdx.has(j)){
-                common.push(smaller[i]);
-                reachedIdx.add(j);
-                break;
-            }
+    for(let num of nums2){
+        if(nums1Map[num]){
+            common.push(num);
+            nums1Map[num]--;
         }
     }
     return common;
@@ -26,4 +21,4 @@ var intersect = function (nums1, nums2) {
 console.log(intersect([1, 2, 2, 1], [2, 2]));
 console.log(intersect([4, 9, 5], [9, 4, 9, 8, 4]));
 console.log(intersect([1, 2], [1, 1]));
-console.log(intersect([4,9,5], [9,4,9,8,4]));
+console.log(intersect([4, 9, 5], [9, 4, 9, 8, 4]));
