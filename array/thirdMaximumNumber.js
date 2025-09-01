@@ -1,12 +1,25 @@
 var thirdMax = function (nums) {
-    let sortedInDesc = [...new Set(nums.sort((a, b) => a - b))];
-    if(sortedInDesc.length > 2){
-        return sortedInDesc[sortedInDesc.length-3];
+    let max = second = third = -Infinity;
+    for (let num of [...new Set(nums)]) {
+        if (num > max) {
+            third = second;
+            second = max;
+            max = num;
+        }
+        else if (num > second) {
+            third = second;
+            second = num;
+        }
+        else if (num > third) {
+            third = num;
+        }
     }
-    else{
-        return sortedInDesc[sortedInDesc.length-1];
+    if (third > -Infinity) {
+        return third;
     }
+    return max;
 };
 
-console.log(thirdMax([1,2]))
-console.log(thirdMax([2,2,3,1]))
+console.log(thirdMax([1, 2]))
+console.log(thirdMax([2, 2, 3, 1]))
+console.log(thirdMax([5, 2, 2]))
