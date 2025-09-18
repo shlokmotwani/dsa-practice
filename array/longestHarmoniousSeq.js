@@ -8,18 +8,16 @@ var findLHS = function (nums) {
             freqMap[nums[i]] = 1;
         }
     }
-    let numSet = Array.from(new Set(nums));
     let highest = 0;
-    for (let i = 0; i < numSet.length; i++) {
-        for (let j = i + 1; j < numSet.length; j++) {
-            if (Math.abs(numSet[i] - numSet[j]) === 1) {
-                let pairSum = freqMap[numSet[i]] + freqMap[numSet[j]];
-                if (pairSum > highest) {
-                    highest = pairSum;
-                }
+    for (const key in freqMap) {
+        let currentNum = parseInt(key);
+        if (freqMap[currentNum + 1]) {
+            let sum = freqMap[currentNum] + freqMap[currentNum + 1];
+            if (sum > highest) {
+                highest = sum;
             }
         }
-    }
+    };
     return highest;
 };
 
