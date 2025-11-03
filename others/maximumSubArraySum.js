@@ -41,9 +41,27 @@ function maxUsingPrefix(A) {
   return maxSum;
 }
 
+function maxUsingCarryForward(A) {
+  if (A.length == 0) {
+    return 0;
+  }
+
+  let maxSum = -Infinity;
+  for (let i = 0; i < A.length; i++) {
+    let currentSum = 0;
+    for (let j = i; j < A.length; j++) {
+      currentSum += A[j];
+      maxSum = Math.max(maxSum, currentSum);
+    }
+  }
+  return maxSum;
+}
+
 let A = [10, 40, -90, -2, 4, 72, -100, 3, 49, -24, 49, 22];
 let B = [-20, 30, 40, -10, 50, -100, 70];
 console.log(maximumSubArraySum(A));
 console.log(maximumSubArraySum(B));
 console.log(maxUsingPrefix(A));
 console.log(maxUsingPrefix(B));
+console.log(maxUsingCarryForward(A));
+console.log(maxUsingCarryForward(B));
