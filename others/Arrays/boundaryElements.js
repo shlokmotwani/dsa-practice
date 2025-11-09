@@ -39,4 +39,4 @@ let A = [
   [21, 22, 23, 24, 25],
 ];
 
-console.log(boundaryElements(A));
+boundaryElements(A);

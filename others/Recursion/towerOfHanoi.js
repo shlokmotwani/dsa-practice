@@ -8,4 +8,4 @@ function towerOfHanoi(n, A, B, C) {
   towerOfHanoi(n - 1, B, A, C);
 }
 
-towerOfHanoi(4, "A", "B", "C");
+towerOfHanoi(3, "A", "B", "C");
